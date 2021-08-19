@@ -7,6 +7,12 @@ const logInCredential ={
     password:"12345"
 }
 
+const myAccountDetail ={
+    accountName: "Ronniel de Ramos",
+    accountNumber: 1234567,
+    initialAmount: 100000
+}
+
 
 function App(){
     const[logInMessege, setLogInMessege] = useState("Welcome!")
@@ -21,7 +27,8 @@ function App(){
     }
 
 return(isLoggedIn?
-<MainContent />
+<MainContent
+accountDetail={myAccountDetail} />
 :
 <Login
 messege ={logInMessege}
