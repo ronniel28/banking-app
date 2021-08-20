@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/github.io/banking-app/static/css/main.c1218f66.chunk.css",
+    "main.js": "/github.io/banking-app/static/js/main.0f4c7f1f.chunk.js",
+    "main.js.map": "/github.io/banking-app/static/js/main.0f4c7f1f.chunk.js.map",
+    "runtime-main.js": "/github.io/banking-app/static/js/runtime-main.984fe964.js",
+    "runtime-main.js.map": "/github.io/banking-app/static/js/runtime-main.984fe964.js.map",
+    "static/css/2.9f596ffa.chunk.css": "/github.io/banking-app/static/css/2.9f596ffa.chunk.css",
+    "static/js/2.939cf0eb.chunk.js": "/github.io/banking-app/static/js/2.939cf0eb.chunk.js",
+    "static/js/2.939cf0eb.chunk.js.map": "/github.io/banking-app/static/js/2.939cf0eb.chunk.js.map",
+    "index.html": "/github.io/banking-app/index.html",
+    "static/css/2.9f596ffa.chunk.css.map": "/github.io/banking-app/static/css/2.9f596ffa.chunk.css.map",
+    "static/css/main.c1218f66.chunk.css.map": "/github.io/banking-app/static/css/main.c1218f66.chunk.css.map",
+    "static/js/2.939cf0eb.chunk.js.LICENSE.txt": "/github.io/banking-app/static/js/2.939cf0eb.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.984fe964.js",
+    "static/css/2.9f596ffa.chunk.css",
+    "static/js/2.939cf0eb.chunk.js",
+    "static/css/main.c1218f66.chunk.css",
+    "static/js/main.0f4c7f1f.chunk.js"
+  ]
+}
