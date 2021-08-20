@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import ContactCard from './ContactCard';
 
 export default function FriendsTable(props){

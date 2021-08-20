@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AddFriend from "./AddFriend";
-import FriendCard from "./FriendCard";
 import FriendsTable from "./FriendsTable";
 import Heading from "./Heading";
 
