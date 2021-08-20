@@ -6,7 +6,10 @@ import Friends from './Friends';
 function MainContent(props){
     return(
 <div >
-    <Sidebar />
+    <Sidebar 
+    logOut={props.logOut}
+
+    />
     <Dashboard
     accountDetail={props.accountDetail} />
     <Friends />

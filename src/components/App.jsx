@@ -8,7 +8,7 @@ const logInCredential ={
 }
 
 const myAccountDetail ={
-    accountName: "Ronniel de Ramos",
+    accountName: "John Doe",
     accountNumber: 1234567,
     initialAmount: 100000
 }
@@ -26,8 +26,13 @@ function App(){
         }
     }
 
+    function logOut(){
+        setIsLoggedIn(false);
+    }
+
 return(isLoggedIn?
 <MainContent
+logOut = {logOut}
 accountDetail={myAccountDetail} />
 :
 <Login

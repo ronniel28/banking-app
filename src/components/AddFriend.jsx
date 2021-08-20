@@ -35,7 +35,7 @@ const [contactInfo, setContactInfo] = useState({
     return (
         <Card>
             <CardHeader color="blue" size="lg">
-                <H5 color="white">Add Friend</H5>
+                <H5 color="white">Add Contact</H5>
             </CardHeader>
 
             <CardBody>

@@ -13,7 +13,7 @@ function Section(props){
                 /></div>
             </div>
 
-            <div className=" bg-white lg:w-2/4 px-6 py-12 bg-cover h-64 lg:h-full lg:rounded-lg">
+            <div className="flex justiy-center items-center bg-white lg:w-2/4 px-6 py-12 bg-cover h-64 lg:h-full lg:rounded-lg">
             <ResponsiveCard />
                 {/* <h2 className="text-2xl font-bold text-gray-800 dark:text-white md:text-3xl">Build Your New <span className="text-indigo-600 dark:text-indigo-400">Idea</span></h2>
                 <p className="mt-4 text-gray-600 dark:text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem modi reprehenderit vitae exercitationem aliquid dolores ullam temporibus enim expedita aperiam mollitia iure consectetur dicta tenetur, porro consequuntur saepe accusantium consequatur.</p>

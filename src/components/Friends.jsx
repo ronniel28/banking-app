@@ -22,7 +22,7 @@ function toDelete(id){
 }
 
 return(
-    <div id ="friends" className="ml-64 bg-gradient-to-r from-blue-300 to-blue-500 h-screen">
+    <div id ="friends" className="ml-64 bg-gradient-to-r from-blue-300 to-blue-700 h-screen">
         <Heading 
         name="Friends" />
         <div className="flex justify-evenly items-center h-full w-full">

@@ -26,7 +26,7 @@ export default function Login(props) {
         props.login(credential)
     }
 
-    return (<div className="h-screen w-screen flex justify-center items-center bg-blue-900">
+    return (<div className="h-screen w-screen flex justify-center items-center bg-blue-700">
     <div className= " flex justify-center items-center h-2/4 w-2/6">
     <Card>
         <CardHeader color="lightBlue" size="lg">
