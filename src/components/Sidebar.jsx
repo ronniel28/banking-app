@@ -71,7 +71,9 @@ function Sidebar(props){
                 <h4 className="mx-2 font-medium text-gray-800 dark:text-gray-200 hover:underline">John Doe</h4>
             </div>
             <div>
-                <SignOutButton logOut={props.logOut} />
+                <SignOutButton 
+                setMessege ={props.setMessege}
+                logOut={props.logOut} />
                 </div>
         </div>
     </div>

@@ -5,6 +5,7 @@ export default function SignOutButton(props) {
 
     function handleLogOut(){
         props.logOut()
+        props.setMessege("You've been signed out")
     }
     return (
         <Button

@@ -7,6 +7,7 @@ function MainContent(props){
     return(
 <div >
     <Sidebar 
+    setMessege ={props.setMessege}
     logOut={props.logOut}
 
     />

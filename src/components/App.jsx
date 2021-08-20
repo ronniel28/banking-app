@@ -30,8 +30,13 @@ function App(){
         setIsLoggedIn(false);
     }
 
+    function setMessege(messege){
+        setLogInMessege(messege)
+    }
+
 return(isLoggedIn?
 <MainContent
+setMessege={setMessege}
 logOut = {logOut}
 accountDetail={myAccountDetail} />
 :
