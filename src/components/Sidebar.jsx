@@ -5,7 +5,7 @@ function Sidebar(props){
     return(
        
              <div className="fixed flex flex-col w-64 h-screen px-4 py-8 bg-blue-700 border-r dark:bg-gray-800 dark:border-gray-600">
-        <h2 className="text-3xl font-semibold text-white dark:text-white">Brand</h2>
+        <h2 className="text-3xl font-semibold text-white dark:text-white">BANK NAME</h2>
 
         <div className="relative mt-6">
             <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -33,7 +33,7 @@ function Sidebar(props){
                     <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <span className="mx-4 font-medium">Friends</span>
+                    <span className="mx-4 font-medium">Contacts</span>
                 </a>
 
                 <a className="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
@@ -41,7 +41,7 @@ function Sidebar(props){
                     <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <span className="mx-4 font-medium">Tickets</span>
+                    <span className="mx-4 font-medium">Transaction History</span>
                 </a>
 
                 <a className="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">

@@ -8,7 +8,7 @@ return(
 
   <div className="w-full h-full bg-white p-5 rounded-xl bg-opacity-60 backdrop-filter backdrop-blur-lg">
     <div className="header-card flex justify-between font-semibold">
-      <div className="">Contacts</div>
+      <div className="">Contact List</div>
       <div className="flex items-center gap-x-1 text-sm text-blue-500">
          <svg className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path fill="none" d="M0 0h24v24H0z" />

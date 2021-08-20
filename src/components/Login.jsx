@@ -74,7 +74,7 @@ export default function Login(props) {
                     size="lg"
                     ripple="dark"
                 >
-                    Sign In
+                    Log In
                 </Button>
             </div>
         </CardFooter>

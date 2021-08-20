@@ -5,7 +5,7 @@ export default function SignOutButton(props) {
 
     function handleLogOut(){
         props.logOut()
-        props.setMessege("You've been signed out")
+        props.setMessege("You've been logged out")
     }
     return (
         <Button
@@ -18,7 +18,7 @@ export default function SignOutButton(props) {
             iconOnly={false}
             ripple="light"
         >
-            <i class="fas fa-sign-out-alt"></i>Sign Out
+            <i class="fas fa-sign-out-alt"></i>Log Out
         </Button>
     )
 }

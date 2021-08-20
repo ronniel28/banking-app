@@ -16,7 +16,7 @@ const myAccountDetail ={
 
 function App(){
     const[logInMessege, setLogInMessege] = useState("Welcome!")
-    const[isLoggedIn, setIsLoggedIn]= useState(true);
+    const[isLoggedIn, setIsLoggedIn]= useState(false);
 
     function checkCredential(credential){
         if((logInCredential.username === credential.username)&&(logInCredential.password === credential.password)){
