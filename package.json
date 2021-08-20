@@ -2,7 +2,7 @@
   "name": "banking-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ronniel28/github.io/banking-app",
+  "homepage": "https://ronniel28.github.io/banking-app",
   "dependencies": {
     "@craco/craco": "^6.2.0",
     "@material-tailwind/react": "0.3.4",
