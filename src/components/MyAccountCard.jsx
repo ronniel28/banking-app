@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function ContactCard(props){
+export default function MyAccountCard(props){
 
     function handleDeleteButton(){
-        props.toDeleteContact(props.id)
+        props.deleteMyAccount(props.id)
     }
 
     return(

@@ -17,6 +17,8 @@ const myAccountDetail ={
 function App(){
     const[logInMessege, setLogInMessege] = useState("Welcome!")
     const[isLoggedIn, setIsLoggedIn]= useState(false);
+    const [contacts, setContacts]= useState([]) //for contacts array
+    const [myAccounts, setMyAccounts] =useState([]) //my accounts
 
     function checkCredential(credential){
         if((logInCredential.username === credential.username)&&(logInCredential.password === credential.password)){
@@ -34,8 +36,44 @@ function App(){
         setLogInMessege(messege)
     }
 
+    //contacts
+    function addContact(contact){
+        setContacts(prevContacts=>{
+            return [...prevContacts, contact]
+        })
+    }
+    
+    function toDeleteContact(id){
+        setContacts(prevContacts=>{
+            return prevContacts.filter((contact, index)=>{
+                return index !==id
+            })
+        })
+    }
+
+    //my accounts
+    function addMyAccount(account){
+        setMyAccounts(prevContacts=>{
+            return [...prevContacts, account]
+        })
+    }
+    
+    function deleteMyAccount(id){
+        setMyAccounts(prevContacts=>{
+            return prevContacts.filter((account, index)=>{
+                return index !==id
+            })
+        })
+    }
+
 return(isLoggedIn?
 <MainContent
+addMyAccount={addMyAccount}
+deleteMyAccount={deleteMyAccount}
+myAccounts={myAccounts}
+toDeleteContact={toDeleteContact}
+contacts ={contacts}
+addContact={addContact}
 setMessege={setMessege}
 logOut = {logOut}
 accountDetail={myAccountDetail} />

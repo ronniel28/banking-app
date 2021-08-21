@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from './Sidebar';
 import Dashboard from './Dashboard';
 import Friends from './Friends';
+import SettingsPage from './SettingsPage';
 
 function MainContent(props){
     return(
@@ -13,7 +14,17 @@ function MainContent(props){
     />
     <Dashboard
     accountDetail={props.accountDetail} />
-    <Friends />
+    <Friends 
+        toDeleteContact={props.toDeleteContact}
+        contacts={props.contacts}
+        addContact={props.addContact}
+    />
+
+    <SettingsPage 
+    addMyAccount={props.addMyAccount}
+    deleteMyAccount={props.deleteMyAccount}
+    myAccounts={props.myAccounts}
+    />
     
 </div>)
 }

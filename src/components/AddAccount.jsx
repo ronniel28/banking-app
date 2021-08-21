@@ -8,15 +8,15 @@ import Button from "@material-tailwind/react/Button";
 import H5 from "@material-tailwind/react/Heading5";
 
 
-export default function AddFriend(props) {
-const [contactInfo, setContactInfo] = useState({
+export default function AddAccount(props) {
+const [accountInfo, setAccountInfo] = useState({
     accountName:"",
     accountNumber:"",
     initialAmount:""
 })
     function handleChange(event){
         const {name, value} = event.target;
-        setContactInfo(prevValue=>{
+        setAccountInfo(prevValue=>{
             return {
                 ...prevValue,
                 [name]:value
@@ -25,8 +25,8 @@ const [contactInfo, setContactInfo] = useState({
     }
 
     function toSubmit(){
-        props.addContact(contactInfo);
-        setContactInfo({
+        props.addMyAccount(accountInfo);
+        setAccountInfo({
             accountName:"",
             accountNumber:"",
             initialAmount:""
@@ -35,14 +35,14 @@ const [contactInfo, setContactInfo] = useState({
     return (
         <Card className="h-full">
             <CardHeader color="blue" size="lg">
-                <H5 color="white">Add Contact</H5>
+                <H5 color="white">Add Account</H5>
             </CardHeader>
 
             <CardBody>
                 <div className="mt-4 mb-8 px-4">
                     <InputIcon
                         name="accountName"
-                        value={contactInfo.accountName}
+                        value={accountInfo.accountName}
                         onChange={handleChange}
                         type="text"
                         color="lightBlue"
@@ -53,7 +53,7 @@ const [contactInfo, setContactInfo] = useState({
                 <div className="mb-8 px-4">
                     <InputIcon
                         name="accountNumber"
-                        value={contactInfo.accountNumber}
+                        value={accountInfo.accountNumber}
                         onChange={handleChange}
                         type="number"
                         color="lightBlue"
@@ -64,7 +64,7 @@ const [contactInfo, setContactInfo] = useState({
                 <div className="mb-4 px-4">
                     <InputIcon
                         name="initialAmount"
-                        value={contactInfo.initialAmount}
+                        value={accountInfo.initialAmount}
                         onChange={handleChange}
                         type="number"
                         color="lightBlue"

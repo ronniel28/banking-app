@@ -1,13 +1,14 @@
 import React from 'react';
 import ContactCard from './ContactCard';
+import MyAccountCard from './MyAccountCard';
 
-export default function FriendsTable(props){
-    const contactMap = props.contacts;
+export default function MyAccountsTable(props){
+    const accountMap = props.myAccounts;
 return(
 
   <div className="w-full h-full bg-white p-5 rounded-xl bg-opacity-60 backdrop-filter backdrop-blur-lg">
     <div className="header-card flex justify-between font-semibold">
-      <div className="">Contact List</div>
+      <div className="">Account List</div>
       <div className="flex items-center gap-x-1 text-sm text-blue-500">
          <svg className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path fill="none" d="M0 0h24v24H0z" />
@@ -20,14 +21,14 @@ return(
 
     <div className="card-content divide-y flex flex-col gap-y-3 mt-5">
 
-     {contactMap.map((contact,index)=>{
-         return<ContactCard
+     {accountMap.map((account,index)=>{
+         return<MyAccountCard
          key={index}
          id={index}
-         toDeleteContact ={props.toDeleteContact}
-         accountName ={contact.accountName}
-         accountNumber={contact.accountNumber}
-         initialAmount={contact.initialAmount} />
+         deleteMyAccount ={props.deleteMyAccount}
+         accountName ={account.accountName}
+         accountNumber={account.accountNumber}
+         initialAmount={account.initialAmount} />
      })}
 
     </div>
