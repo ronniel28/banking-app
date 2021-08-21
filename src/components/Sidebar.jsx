@@ -5,8 +5,11 @@ function Sidebar(props){
     return(
        
              <div className="fixed flex flex-col w-64 h-screen px-4 py-8 bg-blue-700 border-r dark:bg-gray-800 dark:border-gray-600">
-        <h2 className="text-3xl font-semibold text-white dark:text-white">BANK NAME</h2>
+        
+        {/* logo start */}
+        <img src="Black2.png" />
 
+        {/* logo end */}
         <div className="relative mt-6">
             <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 <svg className="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
