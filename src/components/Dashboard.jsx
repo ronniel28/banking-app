@@ -7,6 +7,12 @@ return (<div id="dashboard" className="ml-64 bg-gradient-to-r from-blue-300 to-b
 <Heading
 name ="Dashboard" />
 <Section
+toTransfer={props.toTransfer}
+findSelectedAccount={props.findSelectedAccount}
+toWithdraw={props.toWithdraw}
+toDeposit={props.toDeposit}
+contacts={props.contacts}
+myAccounts={props.myAccounts}
 accountDetail={props.accountDetail} />
 </div>   )
 }

@@ -8,7 +8,7 @@ function SettingsPage(props){
         <Heading name="Settings" />
         <div className="flex justify-evenly items-center h-full w-full">
        <div className=" w-2/6 h-3/5">
-           <AddAccount
+        <AddAccount
            addMyAccount ={props.addMyAccount} />
        </div>
         <div className="h-4/5 w-3/6">

@@ -13,6 +13,12 @@ function MainContent(props){
 
     />
     <Dashboard
+    toTransfer={props.toTransfer}
+    findSelectedAccount={props.findSelectedAccount}
+    toWithdraw={props.toWithdraw}
+    toDeposit={props.toDeposit}
+    myAccounts={props.myAccounts}
+    contacts ={props.contacts}
     accountDetail={props.accountDetail} />
     <Friends 
         toDeleteContact={props.toDeleteContact}

@@ -10,27 +10,40 @@ import H5 from "@material-tailwind/react/Heading5";
 
 export default function AddAccount(props) {
 const [accountInfo, setAccountInfo] = useState({
+    accountType:"ownAccount",
     accountName:"",
     accountNumber:"",
     initialAmount:""
 })
     function handleChange(event){
         const {name, value} = event.target;
-        setAccountInfo(prevValue=>{
-            return {
-                ...prevValue,
-                [name]:value
-            }
-        })
+        if (name ==="accountName"){
+            setAccountInfo(prevValue=>{
+                return {
+                    ...prevValue,
+                    [name]:value
+                }
+            })
+        }else{
+            setAccountInfo(prevValue=>{
+                return {
+                    ...prevValue,
+                    [name]:parseInt(value)
+                }
+            })
+        }
+        
     }
 
     function toSubmit(){
         props.addMyAccount(accountInfo);
         setAccountInfo({
+            accountType:"ownAccount",
             accountName:"",
             accountNumber:"",
             initialAmount:""
         })
+
     }
     return (
         <Card className="h-full">

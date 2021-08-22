@@ -10,23 +10,35 @@ import H5 from "@material-tailwind/react/Heading5";
 
 export default function AddFriend(props) {
 const [contactInfo, setContactInfo] = useState({
+    accountType:"contacts",
     accountName:"",
     accountNumber:"",
     initialAmount:""
 })
     function handleChange(event){
         const {name, value} = event.target;
-        setContactInfo(prevValue=>{
-            return {
-                ...prevValue,
-                [name]:value
-            }
-        })
+        if (name === "accountName"){
+            setContactInfo(prevValue=>{
+                return {
+                    ...prevValue,
+                    [name]: value
+                }
+            })
+        }else{
+            setContactInfo(prevValue=>{
+                return {
+                    ...prevValue,
+                    [name]:parseInt( value)
+                }
+            })
+        }
+        
     }
 
     function toSubmit(){
         props.addContact(contactInfo);
         setContactInfo({
+            accountType:"contacts",
             accountName:"",
             accountNumber:"",
             initialAmount:""

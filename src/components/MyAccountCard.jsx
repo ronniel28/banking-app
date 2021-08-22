@@ -25,7 +25,7 @@ export default function MyAccountCard(props){
         <div className="card-action">
            <button className="flex items-center px-2 py-1 text-xs text-white bg-green-500 hover:bg-green-600">
            <i className="fas fa-paper-plane"></i>
-            <span className=""> Send Money</span>
+            <span className=""> Deposit</span>
           </button>
         </div>
         <div className="card-action">

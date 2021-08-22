@@ -4,8 +4,9 @@ import ModalHeader from "@material-tailwind/react/ModalHeader";
 import ModalBody from "@material-tailwind/react/ModalBody";
 import ModalFooter from "@material-tailwind/react/ModalFooter";
 import Button from "@material-tailwind/react/Button";
+import MoneyTransferForm from "./MoneyTransferForm";
 
-export default function TransferMoneyModal() {
+export default function TransferMoneyModal(props) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -32,9 +33,10 @@ export default function TransferMoneyModal() {
                 Transfer Money
                 </ModalHeader>
                 <ModalBody>
-                    <p className="text-base leading-relaxed text-gray-600 font-normal">
-                    <i class="fas fa-hard-hat"></i> ThisPage is under construction.
-                    </p>
+                   <MoneyTransferForm
+                   toTransfer={props.toTransfer}
+                   contacts={props.contacts}
+                   myAccounts={props.myAccounts} />
                 </ModalBody>
                 <ModalFooter>
                     <Button 
@@ -46,13 +48,7 @@ export default function TransferMoneyModal() {
                         Close
                     </Button>
 
-                    <Button
-                        color="green"
-                        onClick={(e) => setShowModal(false)}
-                        ripple="light"
-                    >
-                        Save Changes
-                    </Button>
+                   
                 </ModalFooter>
             </Modal>
         </>
