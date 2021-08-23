@@ -14,6 +14,8 @@ function ResponsiveCard(props){
    
 {/* card2 */}
    <TransferMoneyModal
+   toWithdraw={props.toWithdraw}
+   toDeposit={props.toDeposit}
    toTransfer={props.toTransfer}
    contacts={props.contacts}
    myAccounts={props.myAccounts} />

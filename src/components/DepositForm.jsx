@@ -1,20 +1,27 @@
 
 import React,{useState} from 'react';
+import AlertNotif from './AlertNotif';
+import BankAccountOptionTwo from './BackAccountOptionTwo';
 import BankAccountOption from './BankAccountOption';
-import DepositAlert from './DepositAlert';
+import SuccessNotif from './SuccessNotif';
+
 
 export default function DepositForm(props){
     const accountToMap = props.myAccounts;
     const [depositInput, setDepositInput]= useState({
-        selectedAccountId:"",
-        selectedAccount:"",
-        depositAmount:"",
+        initialAmount:"",
+        accountType:"",
+        toAccountId:"",
+        toAccount:"",
+        amount:"",
         note:""
     })
 
+    const[notif, setNotif]=useState("");
+
     function handleChange(event){
         const {name, value}= event.target;
-        if(name==="depositAmount"){
+        if(name==="amount"){
             setDepositInput(prevInput=>{
                 return{...prevInput,
                 [name]:parseInt(value)}
@@ -31,26 +38,32 @@ export default function DepositForm(props){
     function addSelectedAccountId(id){
         setDepositInput(prevValue=>{
             return {...prevValue,
-                selectedAccountId:id.accountNumber
+                toAccountId:id.accountNumber,
+                initialAmount:id.initialAmount
             }
         })
     }
 
     function handleClick(event){
         props.toDeposit(depositInput)
-        event.preventDefault();
+        event.preventDefault()
+       
+
         setDepositInput({
-            selectedAccountId:"",
-            selectedAccount:"",
-            depositAmount:"",
+            accountType:"",
+            toAccountId:"",
+            toAccount:"",
+            amount:"",
             note:""
         })
-       alert("success!")
+        setNotif(<SuccessNotif
+            messege="Successfully deposited" />)
     }
 
     return(
         <div className="bg-gray-200 h-full pt-2 font-sans">
             <div className="container">
+            <div>{notif}</div>
                 <div className="inputs w-full max-w-2xl p-6 mx-auto">
                     <h2 className="text-2xl text-gray-900">Select Account</h2>
                     <form className="mt-6 border-t border-gray-400 pt-4">
@@ -59,19 +72,18 @@ export default function DepositForm(props){
                                 <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Select which accout to deposit</label>
                                 <div className="flex-shrink w-full inline-block relative">
                                     <select 
-                                        value={depositInput.selectedAccount}
-                                        name= "selectedAccount"
+                                        value={depositInput.toAccount}
+                                        name= "toAccount"
                                         onChange={handleChange}
                                         className="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
                                        <option>choose ...</option>
                                         {accountToMap.map((account,index)=>{
                         
                                             return(
-                                                <BankAccountOption
+                                                <BankAccountOptionTwo
+                                                accounttype={props.accountType}
                                                 addSelectedAccountId={addSelectedAccountId}
                                                 findSelectedAccount={props.findSelectedAccount}
-                                                key={index}
-                                                id={index}
                                                 accountName={account.accountName}
                                                 accountNumber={account.accountNumber}
                                                 initialAmount={account.initialAmount}
@@ -91,9 +103,9 @@ export default function DepositForm(props){
                                     <div className='w-full md:w-1/2 px-3 mb-6'>
                                         <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Amount</label>
                                         <input 
-                                        value={depositInput.depositAmount}
+                                        value={depositInput.amount}
                                         onChange={handleChange}
-                                        name="depositAmount"
+                                        name="amount"
                                         className='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='number'  required/>
                                     </div>
                                 </div>

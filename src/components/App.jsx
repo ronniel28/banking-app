@@ -3,11 +3,13 @@ import Login from './Login';
 import MainContent from './MainContent';
 
 const logInCredential ={
+    key:7,
     username:"avionschool",
     password:"12345"
 }
 
 const myAccountDetail ={
+    key:8,
     accountName: "John Doe",
     accountNumber: 1234567,
     initialAmount: 100000
@@ -18,17 +20,20 @@ function App(){
     const[logInMessege, setLogInMessege] = useState("Welcome!")
     const[isLoggedIn, setIsLoggedIn]= useState(true);
     const [contacts, setContacts]= useState([{
+        key:4,
         accountType:"contacts",
         accountName: "Contact 1",
         accountNumber: 4,
         initialAmount: 100000},
         {
+            key:5,
         accountType:"contacts",
         accountName:"Contact 2",
         accountNumber:5,
         initialAmount:200000
         },
         {
+            key:6,
         accountType:"contacts",
         accountName:"Contact 3",
         accountNumber:6,
@@ -38,17 +43,20 @@ function App(){
 
     const [myAccounts, setMyAccounts] =useState([
         {
+            key:1,
         accountType:"ownAccount",
         accountName: "John Doe",
         accountNumber: 1,
         initialAmount: 100000},
         {
+            key:2,
         accountType:"ownAccount",
         accountName:"Ronniel",
         accountNumber:2,
         initialAmount:200000
         },
         {
+            key:3,
         accountType:"ownAccount",
         accountName:"Ewan",
         accountNumber:3,
@@ -56,7 +64,6 @@ function App(){
         }
     ]) //my accounts
     
-console.log(setMyAccounts)
     function checkCredential(credential){
         if((logInCredential.username === credential.username)&&(logInCredential.password === credential.password)){
             setIsLoggedIn(true);
@@ -111,41 +118,58 @@ console.log(setMyAccounts)
     }
 
     function toDeposit(depositInput){
-        const depositAmount= depositInput.depositAmount;
-        const accountId= depositInput.selectedAccountId;
+        const amount= depositInput.amount;
+        const accountId= depositInput.toAccountId;
 
-        console.log(accountId);
-        setMyAccounts(myAccounts.map(prevValue=>{
-            console.log(prevValue)
-            if(prevValue.accountNumber !== accountId) return prevValue
-            return{...prevValue, initialAmount: (depositAmount + prevValue.initialAmount)}
-           
-        }))
+        if(depositInput.accountType==="Contacts"){
+            setContacts(contacts.map(prevValue=>{
+                if(prevValue.accountNumber !== accountId) return prevValue
+                return{...prevValue, initialAmount:(prevValue.initialAmount + amount)}
+            }))
+        }else{
+            setMyAccounts(myAccounts.map(prevValue=>{
+                if(prevValue.accountNumber !== accountId) return prevValue
+                return{...prevValue,initialAmount:(prevValue.initialAmount + amount)}
+            }))
+        }
        
     }
 
     //withdraw
     function toWithdraw(withdrawInput){
-        const withdrawAmount= withdrawInput.withdrawAmount;
-        const accountId= withdrawInput.selectedAccountId;
+        const amount= withdrawInput.amount;
+        const accountId= withdrawInput.fromAccountId;
 
         setMyAccounts(myAccounts.map(prevValue=>{
             if(prevValue.accountNumber !== accountId) return prevValue
-            return{...prevValue, initialAmount: (prevValue.initialAmount - withdrawAmount )}
+            return{...prevValue, initialAmount: (prevValue.initialAmount - amount )}
            
         }))
        
     }
+
+    
 
     //transfer money
 
     function toTransfer(transferInput){
         const transferFromAccountId = transferInput.transferFromAccountId;
         const transferAmount = transferInput.transferAmount;
-        setMyAccounts(myAccounts.map(prevValue=>{
-            if(prevValue.accountNumber !== transferFromAccountId) return prevValue
-            return {...prevValue, initialAmount:(prevValue.initialamount - transferAmount)}
-        }))
+        const transferToAccountId= transferInput.transferToAccountId
+
+       
+        if(transferInput.transferAccountType==="Contacts"){
+            setContacts(contacts.map(prevValue=>{
+                if(prevValue.accountNumber !== transferToAccountId) return prevValue
+                return{...prevValue, initialAmount:(prevValue.initialAmount + transferAmount)}
+            }))
+        }else{
+            setMyAccounts(myAccounts.map(prevValue=>{
+                if(prevValue.accountNumber !== transferToAccountId) return prevValue
+                return{...prevValue,initialAmount:(prevValue.initialAmount + transferAmount)}
+            }))
+        }
+        
     }
 
 return(isLoggedIn?

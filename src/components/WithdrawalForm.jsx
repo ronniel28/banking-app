@@ -1,20 +1,26 @@
 
 import React,{useState} from 'react';
+import AlertNotif from './AlertNotif';
 import BankAccountOption from './BankAccountOption';
+import SuccessNotif from './SuccessNotif';
 
 
 export default function WithdrawalForm(props){
     const accountToMap = props.myAccounts;
     const [withdrawInput, setWithdrawInput]= useState({
-        selectedAccountId:"",
-        selectedAccount:"",
-        withdrawAmount:"",
+        initialAmount:"",
+        accountType:"",
+        fromAccountId:"",
+        fromAccount:"",
+        amount:"",
         note:""
     })
 
+    const[notif, setNotif]= useState("")
+
     function handleChange(event){
         const {name, value}= event.target;
-        if(name==="withdrawAmount"){
+        if(name==="amount"){
             setWithdrawInput(prevInput=>{
                 return{...prevInput,
                 [name]:parseInt(value)}
@@ -29,30 +35,44 @@ export default function WithdrawalForm(props){
     }
 
     function addSelectedAccountId(id){
-        console.log(id)
+        
         setWithdrawInput(prevValue=>{
             return {...prevValue,
-                selectedAccountId:id.accountNumber
+                fromAccountId:id.accountNumber,
+                initialAmount:id.initialAmount
             }
         })
     }
 
     function handleClick(event){
         event.preventDefault();
-        props.toWithdraw(withdrawInput);
+      
+
+        if(withdrawInput.initialAmount < withdrawInput.amount){
+            setNotif(<AlertNotif 
+                messege= "Withdrawal amount can't be higher that your current balance"
+            />)
+        }else{
+            props.toWithdraw(withdrawInput);
+            setWithdrawInput({
+                accountType:"",
+                fromAccountId:"",
+                fromAccount:"",
+                amount:"",
+                note:""
+            })
+           setNotif(<SuccessNotif
+               messege="success!"
+           />)
+        }
         
-        setWithdrawInput({
-            selectedAccountId:"",
-            selectedAccount:"",
-            withdrawAmount:"",
-            note:""
-        })
-       alert("success!")
+        
     }
 
     return(
         <div className="bg-gray-200 h-full pt-2 font-sans">
             <div className="container">
+            <div>{notif}</div>
                 <div className="inputs w-full max-w-2xl p-6 mx-auto">
                     <h2 className="text-2xl text-gray-900">Select Account</h2>
                     <form className="mt-6 border-t border-gray-400 pt-4">
@@ -61,8 +81,8 @@ export default function WithdrawalForm(props){
                                 <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Select which accout to withdraw</label>
                                 <div className="flex-shrink w-full inline-block relative">
                                     <select 
-                                        value={withdrawInput.selectedAccount}
-                                        name= "selectedAccount"
+                                        value={withdrawInput.fromAccount}
+                                        name= "fromAccount"
                                         onChange={handleChange}
                                         className="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
                                        <option>choose ...</option>
@@ -70,6 +90,7 @@ export default function WithdrawalForm(props){
                         
                                             return(
                                                 <BankAccountOption
+                                                accountType={account.accountType}
                                                 addSelectedAccountId={addSelectedAccountId}
                                                 findSelectedAccount={props.findSelectedAccount}
                                                 accountName={account.accountName}
@@ -91,9 +112,9 @@ export default function WithdrawalForm(props){
                                     <div className='w-full md:w-1/2 px-3 mb-6'>
                                         <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Amount</label>
                                         <input 
-                                        value={withdrawInput.withdrawAmount}
+                                        value={withdrawInput.amount}
                                         onChange={handleChange}
-                                        name="withdrawAmount"
+                                        name="amount"
                                         className='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='number'  required/>
                                     </div>
                                 </div>

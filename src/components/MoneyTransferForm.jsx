@@ -1,18 +1,25 @@
 
 import React,{useEffect, useState} from 'react';
+import AlertNotif from './AlertNotif';
+import BankAccountOptionTwo from './BackAccountOptionTwo';
 import BankAccountOption from './BankAccountOption';
+import SuccessNotif from './SuccessNotif';
 
 
 export default function MoneyTransferForm(props){
+    const [notif, setNotif]=useState("");
     const contactsToMap = props.contacts;
     const myAccountsToMap= props.myAccounts; 
     const [accountToMap, setAccountToMap]= useState([]);
     const [transferInfo,setTransferInfo]= useState({
-        transferFromAccount:"",
-        transferAccountType:"",
-        transferToAccount:"",
-        transferAmount:"",
-        transferNote:""
+        fromInitialAmount:"",
+        fromAccount:"",
+        accountType:"",
+        toAccount:"",
+        amount:"",
+        note:"",
+        fromAccountId:"",
+        toAccountId:""
     })
 
         useEffect(()=>{
@@ -21,7 +28,7 @@ export default function MoneyTransferForm(props){
 
         function handleChange(event){
             const {name,value}= event.target;
-            if(name === "transferAmount"){
+            if(name === "amount"){
                 setTransferInfo(prevInfo=>{
                     return{...prevInfo,
                     [name]:parseInt(value)}
@@ -32,33 +39,56 @@ export default function MoneyTransferForm(props){
                     [name]:value}
                 })
             }
-            
         }
-
+        function addFromInitialAmount(account){
+            setTransferInfo(prevValue=>{
+                return{...prevValue,
+                fromInitialAmount:account.fromInitialAmount}
+            })
+        }
         function addSelectedAccountId(account){
             const {name, accountNumber, accountType}= account;
+            console.log(account)
             setTransferInfo(prevValue=>{
                 return{...prevValue,
                     [name]:parseInt(accountNumber)
                 }
             })
-            console.log(transferInfo);
+
         }
 
         function handleClick(event){
-            event.preventDefault();
-            props.toTransfer(transferInfo)
-            setTransferInfo({
-                transferFromAccount:"",
-                transferAccountType:"",
-                transferToAccount:"",
-                transferAmount:"",
-                transferNote:""
-            })
+            event.preventDefault()
+        
+            if(transferInfo.fromInitialAmount < transferInfo.amount){
+                setNotif(<AlertNotif 
+                    messege="Can't transfer amount exceeding your current balance"
+                />)
+            }else{
+                props.toDeposit(transferInfo)
+                props.toWithdraw(transferInfo)
+                // props.toTransfer(transferInfo);
+                setTransferInfo({
+                    fromAccount:"",
+                    accountType:"",
+                    toAccount:"",
+                    amount:"",
+                    note:"",
+                    fromAccountId:"",
+                    toAccountId:""
+                })
+                setNotif(<SuccessNotif
+                messege="Successfully Transfered" />)
+            }
+
+
         }
+
+
     return(
         <div className="bg-gray-200 h-full pt-2 font-sans">
             <div className="container">
+            <div>{notif}</div>
                 <div className="inputs w-full max-w-2xl p-6 mx-auto">
                     <h2 className="text-2xl text-gray-900">Select Account</h2>
                     <form className="mt-6 border-t border-gray-400 pt-4">
@@ -68,14 +98,16 @@ export default function MoneyTransferForm(props){
                                 <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Transfer from</label>
                                 <div className="flex-shrink w-full inline-block relative">
                                     <select 
-                                        value={transferInfo.transferFromAccount}
-                                        name="transferFromAccount"
+                                        value={transferInfo.fromAccount}
+                                        name="fromAccount"
                                         onChange={handleChange}
                                         className="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
                                        <option>choose ...</option>
                                       { myAccountsToMap.map(myAccount=>{
                                           return <BankAccountOption
-                                                    name="transferFromAccountId"
+                                                    fromInitialAmount={myAccount.initialAmount}
+                                                    addFromInitialAmount={addFromInitialAmount}
+                                                    name="fromAccountId"
                                                     addSelectedAccountId={addSelectedAccountId}
                                                     accountName={myAccount.accountName}
                                                     accountNumber={myAccount.accountNumber}
@@ -92,8 +124,8 @@ export default function MoneyTransferForm(props){
                                 <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Transfer to own account or contacts</label>
                                 <div className="flex-shrink w-full inline-block relative">
                                     <select 
-                                    value={transferInfo.transferAccountType}
-                                        name="transferAccountType"
+                                    value={transferInfo.accountType}
+                                        name="accountType"
                                         onChange={handleChange}
                                         className="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
                                        <option>choose ...</option>
@@ -111,14 +143,14 @@ export default function MoneyTransferForm(props){
                                 <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Transfer to</label>
                                 <div className="flex-shrink w-full inline-block relative">
                                     <select 
-                                        value={transferInfo.transferToAccount}
-                                        name="transferToAccount"
+                                        value={transferInfo.toAccount}
+                                        name="toAccount"
                                         onChange={handleChange}
                                         className="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
                                        <option>choose ...</option>
                                      { accountToMap.map(account=>{
-                                          return <BankAccountOption
-                                                    name="transferToAccountId"
+                                          return <BankAccountOptionTwo
+                                                    name="toAccountId"
                                                     addSelectedAccountId={addSelectedAccountId}
                                                     accountType={account.accountType}
                                                     accountName={account.accountName}
@@ -138,9 +170,9 @@ export default function MoneyTransferForm(props){
                                     <div className='w-full md:w-1/2 px-3 mb-6'>
                                         <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Amount</label>
                                         <input 
-                                        value={transferInfo.transferAmount}
+                                        value={transferInfo.amount}
                                         onChange={handleChange}
-                                        name="transferAmount"
+                                        name="amount"
                                         className='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='number'  required/>
                                     </div>
                                 </div>
@@ -149,9 +181,9 @@ export default function MoneyTransferForm(props){
                                 <div className='w-full md:w-full px-3 mb-6'>
                                     <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Note</label>
                                     <textarea
-                                    value={transferInfo.transferNote}
+                                    value={transferInfo.note}
                                     onChange={handleChange}
-                                    name="transferNote"
+                                    name="note"
                                      placeholder="Note(Optional)" 
                                      className='bg-gray-100 rounded-md border leading-normal resize-none w-full h-20 py-2 px-3 shadow-inner border border-gray-400 font-medium placeholder-gray-700 focus:outline-none focus:bg-white' ></textarea>
                                 </div>

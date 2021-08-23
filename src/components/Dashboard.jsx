@@ -1,4 +1,5 @@
 import React from 'react';
+import AlertNotif from './AlertNotif';
 import Heading from './Heading';
 import Section from './Section';
 
