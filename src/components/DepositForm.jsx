@@ -51,7 +51,7 @@ export default function DepositForm(props){
        
 
         setDepositInput({
-            transactionType:"Deposit",
+            transactionType:"deposit",
             accountType:"",
             toAccountId:"",
             toAccount:"",

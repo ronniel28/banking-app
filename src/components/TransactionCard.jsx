@@ -9,11 +9,22 @@ const transactions = props.transactions;
 return(
     transactions.map(transaction=>{
     if(transaction.transactionType==="withdraw"){
-        return <WithdrawTransactionCard />
+        console.log(transaction.fromAccount)
+        return <WithdrawTransactionCard
+        fromAccount={transaction.fromAccount}
+        amount={transaction.amount}
+        transaction={transaction} />
     }else if(transaction.transactionType==="deposit"){
-        return <DepositTransactionCard />
+        return <DepositTransactionCard
+        toAccount={transaction.toAccount}
+        amount={transaction.amount}
+        transaction={transaction} />
     }else if(transaction.transactionType==="transfer"){
-        return <TransferTransactionCard />
+        return <TransferTransactionCard
+        amount={transaction.amount}
+        fromAccount={transaction.fromAccount}
+        toAccount={transaction.toAccount}
+        transaction={transaction} />
     }
 }))
 
