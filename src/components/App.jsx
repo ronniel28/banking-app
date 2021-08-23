@@ -21,20 +21,20 @@ function App(){
     const[isLoggedIn, setIsLoggedIn]= useState(true);
     const [contacts, setContacts]= useState([{
         key:4,
-        accountType:"contacts",
+        accountType:"Contacts",
         accountName: "Contact 1",
         accountNumber: 4,
         initialAmount: 100000},
         {
             key:5,
-        accountType:"contacts",
+        accountType:"Contacts",
         accountName:"Contact 2",
         accountNumber:5,
         initialAmount:200000
         },
         {
             key:6,
-        accountType:"contacts",
+        accountType:"Contacts",
         accountName:"Contact 3",
         accountNumber:6,
         initialAmount:200000
@@ -120,7 +120,7 @@ function App(){
     function toDeposit(depositInput){
         const amount= depositInput.amount;
         const accountId= depositInput.toAccountId;
-
+        console.log(typeof depositInput.accountType)
         if(depositInput.accountType==="Contacts"){
             setContacts(contacts.map(prevValue=>{
                 if(prevValue.accountNumber !== accountId) return prevValue
@@ -157,18 +157,21 @@ function App(){
         const transferAmount = transferInput.transferAmount;
         const transferToAccountId= transferInput.transferToAccountId
 
-       
-        if(transferInput.transferAccountType==="Contacts"){
-            setContacts(contacts.map(prevValue=>{
+            (transferInput.transferAccountType==="Contacts")?setContacts(contacts.map(prevValue=>{
                 if(prevValue.accountNumber !== transferToAccountId) return prevValue
                 return{...prevValue, initialAmount:(prevValue.initialAmount + transferAmount)}
             }))
-        }else{
+            :
             setMyAccounts(myAccounts.map(prevValue=>{
                 if(prevValue.accountNumber !== transferToAccountId) return prevValue
                 return{...prevValue,initialAmount:(prevValue.initialAmount + transferAmount)}
             }))
-        }
+       
+        // if(transferInput.transferAccountType==="Contacts"){
+            
+        // }else{
+            
+        // }
         
     }
 
