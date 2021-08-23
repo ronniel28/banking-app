@@ -10,7 +10,7 @@ import H5 from "@material-tailwind/react/Heading5";
 
 export default function AddFriend(props) {
 const [contactInfo, setContactInfo] = useState({
-    accountType:"contacts",
+    accountType:"Contacts",
     accountName:"",
     accountNumber:"",
     initialAmount:""
@@ -38,7 +38,7 @@ const [contactInfo, setContactInfo] = useState({
     function toSubmit(){
         props.addContact(contactInfo);
         setContactInfo({
-            accountType:"contacts",
+            accountType:"Contacts",
             accountName:"",
             accountNumber:"",
             initialAmount:""

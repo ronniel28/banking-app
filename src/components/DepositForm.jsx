@@ -9,6 +9,7 @@ import SuccessNotif from './SuccessNotif';
 export default function DepositForm(props){
     const accountToMap = props.myAccounts;
     const [depositInput, setDepositInput]= useState({
+        transactionType:"deposit",
         initialAmount:"",
         accountType:"",
         toAccountId:"",
@@ -50,6 +51,7 @@ export default function DepositForm(props){
        
 
         setDepositInput({
+            transactionType:"Deposit",
             accountType:"",
             toAccountId:"",
             toAccount:"",
@@ -58,6 +60,8 @@ export default function DepositForm(props){
         })
         setNotif(<SuccessNotif
             messege="Successfully deposited" />)
+        
+        props.addToTransaction(depositInput)
     }
 
     return(

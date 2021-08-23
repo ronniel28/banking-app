@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import Dashboard from './Dashboard';
 import Friends from './Friends';
 import SettingsPage from './SettingsPage';
+import TransactionHistory from './TransactionHistory';
 
 function MainContent(props){
+  const [transactions, setTransactions] =useState([]);
+
+    function addToTransaction(transaction){
+        setTransactions(prevValue=>{
+            return[...prevValue,transaction]
+        })
+    }
+
     return(
 <div >
     <Sidebar 
@@ -13,6 +22,7 @@ function MainContent(props){
 
     />
     <Dashboard
+    addToTransaction={addToTransaction}
     toTransfer={props.toTransfer}
     findSelectedAccount={props.findSelectedAccount}
     toWithdraw={props.toWithdraw}
@@ -26,6 +36,9 @@ function MainContent(props){
         addContact={props.addContact}
     />
 
+    <TransactionHistory
+    transactions={transactions} />
+    
     <SettingsPage 
     addMyAccount={props.addMyAccount}
     deleteMyAccount={props.deleteMyAccount}

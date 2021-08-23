@@ -36,6 +36,7 @@ export default function WithdrawModal(props) {
                 </ModalHeader>
                 <ModalBody>
                <WithdrawalForm
+               addToTransaction={props.addToTransaction}
                toWithdraw={props.toWithdraw}
                myAccounts ={props.myAccounts} />
                 </ModalBody>

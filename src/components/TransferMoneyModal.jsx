@@ -34,6 +34,7 @@ export default function TransferMoneyModal(props) {
                 </ModalHeader>
                 <ModalBody>
                    <MoneyTransferForm
+                   addToTransaction={props.addToTransaction}
                    toDeposit={props.toDeposit}
                    toWithdraw={props.toWithdraw}
                 //    toTransfer={props.toTransfer}

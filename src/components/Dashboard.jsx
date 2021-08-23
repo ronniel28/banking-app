@@ -8,6 +8,8 @@ return (<div id="dashboard" className="ml-64 bg-gradient-to-r from-blue-300 to-b
 <Heading
 name ="Dashboard" />
 <Section
+transactions={props.transactions}
+addToTransaction ={props.addToTransaction}
 toTransfer={props.toTransfer}
 findSelectedAccount={props.findSelectedAccount}
 toWithdraw={props.toWithdraw}

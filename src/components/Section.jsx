@@ -15,6 +15,7 @@ function Section(props){
 
             <div className="flex justiy-center items-center bg-white lg:w-2/4 px-6 py-12 bg-cover h-64 lg:h-full lg:rounded-lg">
             <ResponsiveCard
+            addToTransaction={props.addToTransaction}
             toTransfer={props.toTransfer}
             findSelectedAccount={props.findSelectedAccount}
             toWithdraw={props.toWithdraw}

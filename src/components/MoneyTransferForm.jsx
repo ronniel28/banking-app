@@ -12,6 +12,7 @@ export default function MoneyTransferForm(props){
     const myAccountsToMap= props.myAccounts; 
     const [accountToMap, setAccountToMap]= useState([]);
     const [transferInfo,setTransferInfo]= useState({
+        transactionType:"transfer",
         fromInitialAmount:"",
         fromAccount:"",
         accountType:"",
@@ -69,6 +70,7 @@ export default function MoneyTransferForm(props){
                 props.toWithdraw(transferInfo)
                 // props.toTransfer(transferInfo);
                 setTransferInfo({
+                    transactionType:"transfer",
                     fromAccount:"",
                     accountType:"",
                     toAccount:"",
@@ -79,6 +81,7 @@ export default function MoneyTransferForm(props){
                 })
                 setNotif(<SuccessNotif
                 messege="Successfully Transfered" />)
+                props.addToTransaction(transferInfo)
             }
 
 
