@@ -24,8 +24,8 @@ export default function MyAccountCard(props){
         <div className="flex justify-evenly">
         <div className="card-action">
            <button className="flex items-center px-2 py-1 text-xs text-white bg-green-500 hover:bg-green-600">
-           <i className="fas fa-paper-plane"></i>
-            <span className=""> Deposit</span>
+           <i class="fas fa-user-edit"></i>
+            <span className=""> Edit</span>
           </button>
         </div>
         <div className="card-action">

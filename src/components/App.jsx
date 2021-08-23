@@ -58,7 +58,7 @@ function App(){
         {
             key:3,
         accountType:"ownAccount",
-        accountName:"Ewan",
+        accountName:"Savings Account 3",
         accountNumber:3,
         initialAmount:200000
         }
