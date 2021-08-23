@@ -1,6 +1,7 @@
 
 import React,{useState} from 'react';
 import AlertNotif from './AlertNotif';
+import BankAccountOptionTwo from './BackAccountOptionTwo';
 import BankAccountOption from './BankAccountOption';
 import SuccessNotif from './SuccessNotif';
 
@@ -89,7 +90,7 @@ export default function WithdrawalForm(props){
                                         {accountToMap.map((account,index)=>{
                         
                                             return(
-                                                <BankAccountOption
+                                                <BankAccountOptionTwo
                                                 accountType={account.accountType}
                                                 addSelectedAccountId={addSelectedAccountId}
                                                 findSelectedAccount={props.findSelectedAccount}
