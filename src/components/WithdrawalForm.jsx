@@ -9,7 +9,7 @@ import SuccessNotif from './SuccessNotif';
 export default function WithdrawalForm(props){
     const accountToMap = props.myAccounts;
     const [withdrawInput, setWithdrawInput]= useState({
-        transactionType:"Withdraw",
+        transactionType:"withdraw",
         initialAmount:"",
         accountType:"",
         fromAccountId:"",
@@ -56,6 +56,7 @@ export default function WithdrawalForm(props){
             />)
         }else{
             props.toWithdraw(withdrawInput);
+            props.addToTransaction(withdrawInput)
             setWithdrawInput({
                 transactionType:"withdraw",
                 accountType:"",
@@ -67,7 +68,7 @@ export default function WithdrawalForm(props){
            setNotif(<SuccessNotif
                messege="success!"
            />)
-            props.addToTransaction(withdrawInput)
+            
         }
         
         
