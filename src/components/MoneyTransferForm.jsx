@@ -115,8 +115,9 @@ export default function MoneyTransferForm(props){
                                         onChange={handleChange}
                                         className="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
                                        <option>choose ...</option>
-                                      { myAccountsToMap.map(myAccount=>{
+                                      { myAccountsToMap.map((myAccount,index)=>{
                                           return <BankAccountOption
+                                                    key={index+3324}
                                                     fromInitialAmount={myAccount.initialAmount}
                                                     addFromInitialAmount={addFromInitialAmount}
                                                     name="fromAccountId"
@@ -160,8 +161,9 @@ export default function MoneyTransferForm(props){
                                         onChange={handleChange}
                                         className="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
                                        <option>choose ...</option>
-                                     { accountToMap.map(account=>{
+                                     { accountToMap.map((account,index)=>{
                                           return <BankAccountOptionTwo
+                                                    key={index+8503}
                                                     name="toAccountId"
                                                     addSelectedAccountId={addSelectedAccountId}
                                                     accountType={account.accountType}

@@ -18,7 +18,7 @@ export default function SignOutButton(props) {
             iconOnly={false}
             ripple="light"
         >
-            <i class="fas fa-sign-out-alt"></i>Log Out
+            <i className="fas fa-sign-out-alt"></i>Log Out
         </Button>
     )
 }
