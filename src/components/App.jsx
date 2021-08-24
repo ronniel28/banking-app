@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Login from './Login';
 import MainContent from './MainContent';
+import NewlogIn from './NewLogIn';
 
 const logInCredential ={
     key:7,
@@ -18,22 +19,21 @@ const myAccountDetail ={
 
 function App(){
     const[logInMessege, setLogInMessege] = useState("Welcome!")
-    const[isLoggedIn, setIsLoggedIn]= useState(true);
+    const[isLoggedIn, setIsLoggedIn]= useState(false);
     const [contacts, setContacts]= useState([{
-        key:4,
         accountType:"Contacts",
         accountName: "Contact 1",
         accountNumber: 4,
         initialAmount: 100000},
         {
-            key:5,
+
         accountType:"Contacts",
         accountName:"Contact 2",
         accountNumber:5,
         initialAmount:200000
         },
         {
-            key:6,
+  
         accountType:"Contacts",
         accountName:"Contact 3",
         accountNumber:6,
@@ -43,20 +43,20 @@ function App(){
 
     const [myAccounts, setMyAccounts] =useState([
         {
-            key:1,
+  
         accountType:"ownAccount",
         accountName: "John Doe",
         accountNumber: 1,
         initialAmount: 100000},
         {
-            key:2,
+
         accountType:"ownAccount",
         accountName:"Ronniel",
         accountNumber:2,
         initialAmount:200000
         },
         {
-            key:3,
+   
         accountType:"ownAccount",
         accountName:"Savings Account 3",
         accountNumber:3,
@@ -191,10 +191,14 @@ setMessege={setMessege}
 logOut = {logOut}
 accountDetail={myAccountDetail} />
 :
-<Login
+
+
+<NewlogIn
 messege ={logInMessege}
 login={checkCredential} />
  )
 }
 
 export default App;
+
+
