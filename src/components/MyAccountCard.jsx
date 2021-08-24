@@ -1,5 +1,10 @@
 import React from 'react';
-
+import LargeModal from './LargeModal';
+import Modal from "@material-tailwind/react/Modal";
+import ModalHeader from "@material-tailwind/react/ModalHeader";
+import ModalBody from "@material-tailwind/react/ModalBody";
+import ModalFooter from "@material-tailwind/react/ModalFooter";
+import Button from "@material-tailwind/react/Button";
 export default function MyAccountCard(props){
 
     function handleDeleteButton(){
@@ -23,18 +28,32 @@ export default function MyAccountCard(props){
         <h1>{props.initialAmount}</h1>
         <div className="flex justify-evenly">
         <div className="card-action">
-           <button className="flex items-center px-2 py-1 text-xs text-white bg-green-500 hover:bg-green-600">
-           <i className="fas fa-user-edit"></i>
-            <span className=""> Edit</span>
-          </button>
+        <LargeModal />
+           {/* <button className="flex items-center px-2 py-1 text-xs text-white bg-green-500 hover:bg-green-600"> */}
+           {/* <i className="fas fa-user-edit"></i>
+            <span className=""> Edit</span> */}
+          {/* </button> */}
         </div>
         <div className="card-action">
-           <button
+        <Button
+        onClick={handleDeleteButton}
+            color="red"
+            buttonType="filled"
+            size="regular"
+            rounded={false}
+            block={false}
+            iconOnly={false}
+            ripple="light"
+        >
+        <i className="fas fa-trash-alt"></i>
+            Delete
+        </Button>
+           {/* <button
            onClick={handleDeleteButton}
             className="flex items-center px-2 py-1 text-xs text-white bg-red-900 hover:bg-red-500">
                   <i className="fas fa-trash-alt"></i>
             <span className="">Delete</span>
-          </button>
+          </button> */}
           </div>
         </div>
       </div>

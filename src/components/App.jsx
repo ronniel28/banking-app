@@ -19,24 +19,24 @@ const myAccountDetail ={
 
 function App(){
     const[logInMessege, setLogInMessege] = useState("Welcome!")
-    const[isLoggedIn, setIsLoggedIn]= useState(false);
+    const[isLoggedIn, setIsLoggedIn]= useState(true);
     const [contacts, setContacts]= useState([{
         accountType:"Contacts",
         accountName: "Contact 1",
-        accountNumber: 4,
+        accountNumber: 869926248942,
         initialAmount: 100000},
         {
 
         accountType:"Contacts",
         accountName:"Contact 2",
-        accountNumber:5,
+        accountNumber:329171609334,
         initialAmount:200000
         },
         {
   
         accountType:"Contacts",
         accountName:"Contact 3",
-        accountNumber:6,
+        accountNumber:267770852452 ,
         initialAmount:200000
         }]) //for contacts array
 
@@ -46,20 +46,20 @@ function App(){
   
         accountType:"ownAccount",
         accountName: "John Doe",
-        accountNumber: 1,
+        accountNumber: 344577052225,
         initialAmount: 100000},
         {
 
         accountType:"ownAccount",
         accountName:"Ronniel",
-        accountNumber:2,
+        accountNumber:331761914860 ,
         initialAmount:200000
         },
         {
    
         accountType:"ownAccount",
         accountName:"Savings Account 3",
-        accountNumber:3,
+        accountNumber:815466935577 ,
         initialAmount:200000
         }
     ]) //my accounts
