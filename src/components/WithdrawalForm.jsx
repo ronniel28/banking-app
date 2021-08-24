@@ -2,7 +2,6 @@
 import React,{useState} from 'react';
 import AlertNotif from './AlertNotif';
 import BankAccountOptionTwo from './BackAccountOptionTwo';
-import BankAccountOption from './BankAccountOption';
 import SuccessNotif from './SuccessNotif';
 
 
@@ -21,6 +20,7 @@ export default function WithdrawalForm(props){
     const[notif, setNotif]= useState("")
 
     function handleChange(event){
+        const today= new Date();
         const {name, value}= event.target;
         if(name==="amount"){
             setWithdrawInput(prevInput=>{
@@ -33,6 +33,10 @@ export default function WithdrawalForm(props){
                 [name]:value}
             })
         }
+        setWithdrawInput(prevInput=>{
+            return {...prevInput,now:today}
+            
+        })
         
     }
 

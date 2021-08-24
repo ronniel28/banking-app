@@ -14,6 +14,7 @@ function ResponsiveCard(props){
    
 {/* card2 */}
    <TransferMoneyModal
+   addToTimeStamps={props.addToTimeStamps}
    addToTransaction={props.addToTransaction}
    toWithdraw={props.toWithdraw}
    toDeposit={props.toDeposit}
@@ -22,6 +23,7 @@ function ResponsiveCard(props){
    myAccounts={props.myAccounts} />
    {/* card3 */}
    <DepositModal
+   addToTimeStamps={props.addToTimeStamps}
    addToTransaction={props.addToTransaction}
    findSelectedAccount={props.findSelectedAccount}
    toDeposit={props.toDeposit}
@@ -29,6 +31,7 @@ function ResponsiveCard(props){
     {/* <!-- Card 4 --> */}
 
     <WithdrawModal
+    addToTimeStamps={props.addToTimeStamps}
     addToTransaction={props.addToTransaction}
     toWithdraw={props.toWithdraw}
     myAccounts ={props.myAccounts}/>

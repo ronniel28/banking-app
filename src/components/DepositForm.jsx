@@ -1,12 +1,11 @@
 
-import React,{useState} from 'react';
-import AlertNotif from './AlertNotif';
+import React,{useState, useEffect} from 'react';
 import BankAccountOptionTwo from './BackAccountOptionTwo';
-import BankAccountOption from './BankAccountOption';
 import SuccessNotif from './SuccessNotif';
 
 
 export default function DepositForm(props){
+    
     const accountToMap = props.myAccounts;
     const [depositInput, setDepositInput]= useState({
         transactionType:"deposit",
@@ -21,6 +20,7 @@ export default function DepositForm(props){
     const[notif, setNotif]=useState("");
 
     function handleChange(event){
+        const today= new Date();
         const {name, value}= event.target;
         if(name==="amount"){
             setDepositInput(prevInput=>{
@@ -31,10 +31,16 @@ export default function DepositForm(props){
             setDepositInput(prevInput=>{
                 return{...prevInput,
                 [name]:value}
+               
             })
         }
-        
+        setDepositInput(prevInput=>{
+            return {...prevInput,now:today}
+            
+        })
     }
+    
+
 
     function addSelectedAccountId(id){
         setDepositInput(prevValue=>{
@@ -45,11 +51,10 @@ export default function DepositForm(props){
         })
     }
 
+    
     function handleClick(event){
-        props.toDeposit(depositInput)
-        event.preventDefault()
-       
-
+        props.toDeposit(depositInput);
+        event.preventDefault();
         setDepositInput({
             transactionType:"deposit",
             accountType:"",
@@ -60,9 +65,10 @@ export default function DepositForm(props){
         })
         setNotif(<SuccessNotif
             messege="Successfully deposited" />)
-        
         props.addToTransaction(depositInput)
     }
+
+    
 
     return(
         <div className="bg-gray-200 h-full pt-2 font-sans">

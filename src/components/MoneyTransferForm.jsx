@@ -28,6 +28,7 @@ export default function MoneyTransferForm(props){
         },[accountToMap])
 
         function handleChange(event){
+            const today= new Date();
             const {name,value}= event.target;
             if(name === "amount"){
                 setTransferInfo(prevInfo=>{
@@ -40,7 +41,15 @@ export default function MoneyTransferForm(props){
                     [name]:value}
                 })
             }
+
+            setTransferInfo(prevInput=>{
+                return {...prevInput,now:today}
+                
+            })
         }
+
+
+
         function addFromInitialAmount(account){
             setTransferInfo(prevValue=>{
                 return{...prevValue,
@@ -83,7 +92,7 @@ export default function MoneyTransferForm(props){
                 messege="Successfully Transfered" />)
                 props.addToTransaction(transferInfo)
             }
-
+            
 
         }
 

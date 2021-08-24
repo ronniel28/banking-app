@@ -35,6 +35,7 @@ export default function DepositModal(props) {
                 </ModalHeader>
                 <ModalBody>
                 <DepositForm
+                addToTimeStamps={props.addToTimeStamps}
                 addToTransaction={props.addToTransaction}
                 findSelectedAccount={props.findSelectedAccount}
                 toDeposit={props.toDeposit}

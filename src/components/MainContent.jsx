@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
 import Dashboard from './Dashboard';
 import Friends from './Friends';
@@ -13,6 +13,7 @@ function MainContent(props){
             return[...prevValue,transaction]
         })
     }
+
 
     return(
 <div >
