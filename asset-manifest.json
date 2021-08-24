@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/banking-app/static/css/main.c461a1ed.chunk.css",
-    "main.js": "/banking-app/static/js/main.8ff0536f.chunk.js",
-    "main.js.map": "/banking-app/static/js/main.8ff0536f.chunk.js.map",
+    "main.css": "/banking-app/static/css/main.7514a665.chunk.css",
+    "main.js": "/banking-app/static/js/main.7b174316.chunk.js",
+    "main.js.map": "/banking-app/static/js/main.7b174316.chunk.js.map",
     "runtime-main.js": "/banking-app/static/js/runtime-main.2e2d261a.js",
     "runtime-main.js.map": "/banking-app/static/js/runtime-main.2e2d261a.js.map",
     "static/css/2.9f596ffa.chunk.css": "/banking-app/static/css/2.9f596ffa.chunk.css",
-    "static/js/2.bb4d27d3.chunk.js": "/banking-app/static/js/2.bb4d27d3.chunk.js",
-    "static/js/2.bb4d27d3.chunk.js.map": "/banking-app/static/js/2.bb4d27d3.chunk.js.map",
+    "static/js/2.16e56e9a.chunk.js": "/banking-app/static/js/2.16e56e9a.chunk.js",
+    "static/js/2.16e56e9a.chunk.js.map": "/banking-app/static/js/2.16e56e9a.chunk.js.map",
     "index.html": "/banking-app/index.html",
     "static/css/2.9f596ffa.chunk.css.map": "/banking-app/static/css/2.9f596ffa.chunk.css.map",
-    "static/css/main.c461a1ed.chunk.css.map": "/banking-app/static/css/main.c461a1ed.chunk.css.map",
-    "static/js/2.bb4d27d3.chunk.js.LICENSE.txt": "/banking-app/static/js/2.bb4d27d3.chunk.js.LICENSE.txt"
+    "static/css/main.7514a665.chunk.css.map": "/banking-app/static/css/main.7514a665.chunk.css.map",
+    "static/js/2.16e56e9a.chunk.js.LICENSE.txt": "/banking-app/static/js/2.16e56e9a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2e2d261a.js",
     "static/css/2.9f596ffa.chunk.css",
-    "static/js/2.bb4d27d3.chunk.js",
-    "static/css/main.c461a1ed.chunk.css",
-    "static/js/main.8ff0536f.chunk.js"
+    "static/js/2.16e56e9a.chunk.js",
+    "static/css/main.7514a665.chunk.css",
+    "static/js/main.7b174316.chunk.js"
   ]
 }
