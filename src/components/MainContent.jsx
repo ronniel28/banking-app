@@ -23,6 +23,7 @@ function MainContent(props){
 
     />
     <Dashboard
+    editMyAccount={props.editMyAccount}
     addToTransaction={addToTransaction}
     toTransfer={props.toTransfer}
     findSelectedAccount={props.findSelectedAccount}
@@ -41,6 +42,7 @@ function MainContent(props){
     transactions={transactions} />
     
     <SettingsPage 
+    editMyAccount={props.editMyAccount}
     addMyAccount={props.addMyAccount}
     deleteMyAccount={props.deleteMyAccount}
     myAccounts={props.myAccounts}

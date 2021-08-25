@@ -25,7 +25,11 @@ return(
          return<MyAccountCard
          key={index}
          id={index}
+         editMyAccount={props.editMyAccount}
+         account={account}
          deleteMyAccount ={props.deleteMyAccount}
+         accountFullName ={account.accountFullName}
+         accountEmail={account.accountEmail}
          accountName ={account.accountName}
          accountNumber={account.accountNumber}
          initialAmount={account.initialAmount} />

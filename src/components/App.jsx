@@ -112,6 +112,10 @@ function App(){
         })
     }
 
+    function editMyAccount(id){
+        
+    }
+
     //deposit 
     function findSelectedAccount(id){
        console.log(myAccounts[id].initialAmount);
@@ -177,6 +181,7 @@ function App(){
 
 return(isLoggedIn?
 <MainContent
+editMyAccount={editMyAccount}
 toTransfer={toTransfer}
 toWithdraw={toWithdraw}
 findSelectedAccount={findSelectedAccount}

@@ -9,6 +9,10 @@ import MoneyTransferForm from "./MoneyTransferForm";
 export default function TransferMoneyModal(props) {
     const [showModal, setShowModal] = useState(false);
 
+    function closeButton(){
+        setShowModal(false)
+    }
+
     return (
         <>
             <Button
@@ -45,7 +49,7 @@ export default function TransferMoneyModal(props) {
                     <Button 
                         color="red"
                         buttonType="link"
-                        onClick={(e) => setShowModal(false)}
+                        onClick={closeButton}
                         ripple="dark"
                     >
                         Close

@@ -13,6 +13,7 @@ function SettingsPage(props){
        </div>
         <div className="h-4/5 w-3/6">
         <MyAccountsTable
+        editMyAccout ={props.editMyAccout}
         deleteMyAccount={props.deleteMyAccount} 
         myAccounts={props.myAccounts} 
         />

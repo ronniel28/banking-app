@@ -6,16 +6,33 @@ import ModalFooter from "@material-tailwind/react/ModalFooter";
 import Button from "@material-tailwind/react/Button";
 import EditAccount from "./EditAccount";
 
-export default function LargeModal() {
+export default function LargeModal(props) {
     const [showModal, setShowModal] = useState(false);
+    const [changes,setChanges]=useState({})
+
+    function handleClick(){
+        setShowModal(true);
+    }
+
+    function addToChanges(input){
+        setChanges(prevValue=>{
+            return {...prevValue,input}
+        })
+    }
+
+    function saveChangesButton(){
+        // props.editMyAccount(changes)
+        console.log(changes)
+    }
 
     return (
         <>
             <Button
+               
                 className="flex items-center px-2 py-1 text-xs text-white bg-green-500 hover:bg-green-600"
                 
                 type="button"
-                onClick={(e) => setShowModal(true)}
+                onClick={handleClick}
                 
             >
             <i className="fas fa-user-edit"></i>
@@ -27,7 +44,9 @@ export default function LargeModal() {
                     Edit Account
                 </ModalHeader>
                 <ModalBody>
-                   <EditAccount />
+                   <EditAccount
+                   addToChanges={addToChanges}
+                    account={props.account} />
                 </ModalBody>
                 <ModalFooter>
                     <Button 
@@ -41,7 +60,7 @@ export default function LargeModal() {
 
                     <Button
                         color="green"
-                        onClick={(e) => setShowModal(false)}
+                        onClick={saveChangesButton}
                         ripple="light"
                     >
                         Save Changes

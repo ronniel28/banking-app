@@ -28,7 +28,9 @@ export default function MyAccountCard(props){
         <h1>{props.initialAmount}</h1>
         <div className="flex justify-evenly">
         <div className="card-action">
-        <LargeModal />
+        <LargeModal
+        editMyAccount={props.editMyAccount}
+        account = {props.account} />
            {/* <button className="flex items-center px-2 py-1 text-xs text-white bg-green-500 hover:bg-green-600"> */}
            {/* <i className="fas fa-user-edit"></i>
             <span className=""> Edit</span> */}
