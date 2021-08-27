@@ -122,9 +122,9 @@ function App(){
     }
 
     function toDeposit(depositInput){
+        console.log(depositInput)
         const amount= depositInput.amount;
         const accountId= depositInput.toAccountId;
-        console.log(typeof depositInput.accountType)
         if(depositInput.accountType==="Contacts"){
             setContacts(contacts.map(prevValue=>{
                 if(prevValue.accountNumber !== accountId) return prevValue
@@ -132,6 +132,10 @@ function App(){
             }))
         }else{
             setMyAccounts(myAccounts.map(prevValue=>{
+                console.log(prevValue)
+                console.log(prevValue.accountNumber)
+                console.log(accountId)
+                console.log(amount)
                 if(prevValue.accountNumber !== accountId) return prevValue
                 return{...prevValue,initialAmount:(prevValue.initialAmount + amount)}
             }))

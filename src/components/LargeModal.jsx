@@ -8,7 +8,14 @@ import EditAccount from "./EditAccount";
 
 export default function LargeModal(props) {
     const [showModal, setShowModal] = useState(false);
-    const [changes,setChanges]=useState({})
+    const [changes,setChanges]=useState({
+        accountType:"Contacts",
+        accountName: "",
+        accountNumber: "",
+        initialAmount: "",
+        accountEmail: "",
+        accountFullName:""
+    })
 
     function handleClick(){
         setShowModal(true);
@@ -23,6 +30,9 @@ export default function LargeModal(props) {
     function saveChangesButton(){
         // props.editMyAccount(changes)
         console.log(changes)
+        setChanges("")
+        setShowModal(false)
+
     }
 
     return (
