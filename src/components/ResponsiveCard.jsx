@@ -2,6 +2,7 @@
 import React from 'react';
 import DepositModal from './DepositModal';
 import ExpensesModal from './ExpensesModal';
+import TransferModalUnavailable from './TransferModalUnavailable';
 import TransferMoneyModal from './TransferMoneyModal';
 import WithdrawModal from './WithdrawModal';
 
@@ -13,14 +14,15 @@ function ResponsiveCard(props){
      <ExpensesModal />
    
 {/* card2 */}
-   <TransferMoneyModal
+<TransferModalUnavailable />
+   {/* <TransferMoneyModal
    addToTimeStamps={props.addToTimeStamps}
    addToTransaction={props.addToTransaction}
    toWithdraw={props.toWithdraw}
    toDeposit={props.toDeposit}
    toTransfer={props.toTransfer}
    contacts={props.contacts}
-   myAccounts={props.myAccounts} />
+   myAccounts={props.myAccounts} /> */}
    {/* card3 */}
    <DepositModal
    addToTimeStamps={props.addToTimeStamps}
